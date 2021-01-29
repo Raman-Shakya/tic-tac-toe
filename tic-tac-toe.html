@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        *{text-align:center;
+        font-family: 'Potta One', cursive;
+        color: rgb(255,255,255,0.8);}
+        div{height:30px;}
+        #game{
+            width:350px;
+            background-image:linear-gradient(rgba(0,30,200,.8),rgba(50,70,255,0.8));
+            margin:auto;
+            text-align:center;
+            height:auto;
+            padding:20px;
+            border-radius: 75px 75px 50px 50px;
+            box-shadow: 2px 2px rgba(0, 0, 0, 0.726);
+        }
+        #msg{font-size:25px;margin:20px;}
+        table{
+            width:300px;
+            margin:auto;
+        }
+        td{
+            width: 95px;
+            height:95px;
+            border:3px solid rgba(255, 255, 255, 0.8);
+            padding:0px;
+            font-size:30px;
+            cursor: pointer;
+        }
+        td:nth-child(1){border-left:0px;}
+        td:nth-child(3){border-right:0px;}
+        tr:nth-child(1) td{border-top:0px;}
+        tr:nth-child(3) td{border-bottom:0px;}
+        button{
+            margin:20px;
+            margin-top:40px;
+            border:0px solid black;
+            border-radius:10px;
+            background-image: linear-gradient(rgba(148, 132, 132, 0.808),rgba(255, 255, 255, 0.63));
+            padding:10px 15px;
+            cursor:pointer;
+            color:rgba(0, 0, 0, 0.75);
+            transition:0.5s;
+        }
+        button:hover{
+            box-shadow:1px 1px rgba(0, 0, 0, 0.233);
+        }
+        button:focus{
+            outline:none;
+        }
+        h1{
+            color:white;
+        }
+    </style>
+    <div id="game">
+        <h1>Tic-Tac-Toe</h1>
+        <input type="radio" id="ai" name="ai" onclick="AIselector(true)"checked>
+        <label for="ai">AI</label>
+        <input type="radio" id="mult" name="ai" onclick="AIselector(false)">
+        <label for="mult">Multiplayer</label>
+
+
+        <div id="msg"></div>
+        <table cellspacing=0px cellspacing=0px>
+            <tr><td id="c11" onclick=clck(1,1)>O</td><td id="c12" onclick=clck(1,2)>O</td><td id="c13" onclick=clck(1,3)>O</td></tr>
+            <tr><td id="c21" onclick=clck(2,1)>O</td><td id="c22" onclick=clck(2,2)>O</td><td id="c23" onclick=clck(2,3)>O</td></tr>
+            <tr><td id="c31" onclick=clck(3,1)>O</td><td id="c32" onclick=clck(3,2)>O</td><td id="c33" onclick=clck(3,3)>O</td></tr>
+        </table>
+        <button onclick="reset()">reset</button>
+    </div>
+    <div>
+        
+    </div>
+    <script type="text/javascript" src="logic.js"></script>
+</body>
+</html>

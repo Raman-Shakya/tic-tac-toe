@@ -15,8 +15,13 @@
         <label for="ai">AI</label>
         <input type="radio" id="mult" name="ai" onclick="AIselector(false)">
         <label for="mult">Multiplayer</label>
-
-
+        <div class="level">level : 
+            <select name="level" id="lvselector" oninput="depth()">
+                <option value="easy">EASY</option>
+                <option value="medium">MEDIUM</option>
+                <option value="hard">HARD</option>
+            </select>
+        </div>
         <div id="msg"></div>
         <table cellspacing=0px cellspacing=0px>
             <tr><td id="c11" onclick=clck(1,1)>O</td><td id="c12" onclick=clck(1,2)>O</td><td id="c13" onclick=clck(1,3)>O</td></tr>

@@ -14,7 +14,7 @@ div{height:30px;}
     border-radius: 75px 75px 50px 50px;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.726);
 }
-#msg{font-size:25px;margin:20px;}
+#msg{font-size:25px;margin-bottom:20px;}
 table{
     width:300px;
     margin:auto;
@@ -41,6 +41,21 @@ button{
     cursor:pointer;
     color:rgba(0, 0, 0, 0.75);
     transition:0.5s;
+}
+#lvselector{
+    background: transparent;
+    border: 1px solid white;
+    font-size: 60%;
+    border-radius: 7px;
+}
+#lvselector:hover{cursor:pointer;}
+#lvselector:focus{
+    outline:none;
+}
+#lvselector option{
+    color:black;
+    background: transparent;
+    border: 1px solid black;
 }
 button:hover{
     box-shadow:1px 1px rgba(0, 0, 0, 0.233);

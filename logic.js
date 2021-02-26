@@ -1,6 +1,8 @@
-let grid=[]
-let player=0
-let AIselect=true
+let grid = []
+let player = 0
+let AIselect = true
+let AI_depth = 2
+
 function reset(){
     grid = [[0,0,0],
             [0,0,0],
@@ -10,8 +12,9 @@ function reset(){
     render()
 }
 reset()
-function minimax(grid, ai){
+function minimax(grid, ai, depth=2){
     w = windet(grid)
+    if (depth==0) return 0
     if(w=="X")return -1
     if(w=="O")return 1
     if(w=="Draw")return 0
@@ -22,12 +25,12 @@ function minimax(grid, ai){
             if(grid[i][j]==0){
                 if(ai){
                     grid[i][j]=2
-                    let score=minimax(grid,false)
+                    let score=minimax(grid,false, depth-1)
                     best_score = Math.max(score,best_score)
                 }
                 else{
                     grid[i][j]=1
-                    let score=minimax(grid,true)
+                    let score=minimax(grid,true, depth-1)
                     worst_score = Math.min(worst_score,score)
                 }
                 grid[i][j]=0
@@ -42,7 +45,7 @@ function move(grid){
         for(let j=0; j<3; j++){
             if(grid[i][j]==0){
                 grid[i][j]=2
-                let score = minimax(grid, false)
+                let score = minimax(grid, false, AI_depth)
                 grid[i][j]=0
                 if (score>m_score){m_score=score;p=[i,j]}
             }
@@ -82,7 +85,6 @@ function clck(i,j){
             player=AIselect?1:2
             if(AIselect){
                 a=move(grid)
-                console.log(a)
                 grid[a[0]][a[1]]=2
             }
         }
@@ -115,9 +117,17 @@ function AIselector(ai){
     q=[...grid[0],...grid[1],...grid[2]]
     if(!(q.includes(1)||q.includes(2))){
         AIselect = ai
-        console.log(AIselect)
     }
     else{
         document.getElementById(AIselect?"ai":"mult").checked=true
+    }
+}
+function depth(){
+    q=[...grid[0],...grid[1],...grid[2]]
+    if(!(q.includes(1)||q.includes(2))){
+        AI_depth = {"easy":2,"medium":5,"hard":9}[document.querySelector("#lvselector").value]
+    }
+    else{
+        document.querySelector("#lvselector").value={2:"easy",5:"medium",9:"hard"}[AI_depth]
     }
 }

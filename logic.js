@@ -83,10 +83,11 @@ function clck(i,j){
         if(player==1){
             grid[i-1][j-1]=1
             player=AIselect?1:2
-            if(AIselect){
-                a=move(grid)
-                grid[a[0]][a[1]]=2
-            }
+            if(windet(grid)=="undefined")
+                if(AIselect){
+                    a=move(grid)
+                    grid[a[0]][a[1]]=2
+                }
         }
         else{
             grid[i-1][j-1]=2
